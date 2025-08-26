@@ -34,15 +34,21 @@ document.addEventListener('DOMContentLoaded', () => {
             const analysis = data.analysis;
             resultDiv.innerText = analysis;
 
-            // Zmień kolor tła na podstawie odpowiedzi
+            // --- ZAKTUALIZOWANA LOGIKA ---
+            // Zmień kolor tła i odtwórz dźwięk na podstawie odpowiedzi
             const riskLevelLine = analysis.split('\n')[0].toLowerCase();
+            const alarmSound = document.getElementById('alarmSound'); // Pobieramy nasz odtwarzacz
+
             if (riskLevelLine.includes('średni')) {
                 body.className = 'risk-medium';
-            } else if (riskLevelLine.includes('wysoki')) {
-                body.className = 'risk-high';
-            } else if (riskLevelLine.includes('krytyczny')) {
-                body.className = 'risk-critical';
+            } else if (riskLevelLine.includes('wysoki') || riskLevelLine.includes('krytyczny')) {
+                // Ustawiamy odpowiednią klasę dla tła (czarnego)
+                body.className = riskLevelLine.includes('wysoki') ? 'risk-high' : 'risk-critical';
+                
+                // Uruchamiamy dźwięk alarmu!
+                alarmSound.play();
             }
+            // --- KONIEC ZAKTUALIZOWANEJ LOGIKI ---
 
         } catch (error) {
             resultDiv.innerText = `Wystąpił błąd: ${error.message}. Spróbuj ponownie później.`;
