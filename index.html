@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analizator Czatów Randkowych</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Analizator Czatów Randkowych 💔</h1>
+        <p>Wklej rozmowę, aby sprawdzić, czy nie ma w niej sygnałów ostrzegawczych (red flags) wskazujących na próbę oszustwa finansowego.</p>
+        <textarea id="chatInput" placeholder="Wklej tutaj cały zapis rozmowy..."></textarea>
+        <button id="analyzeButton">Analizuj</button>
+        <div id="loader" class="loader" style="display: none;"></div>
+        <div id="result" class="result-container"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
